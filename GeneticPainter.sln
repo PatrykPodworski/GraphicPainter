@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericPainter", "GenericPainter\GenericPainter.csproj", "{37B03EFF-9FAA-4F9C-87DB-E0D36F87D669}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{989F42FC-D42B-437A-AACF-8027220DA066}"
+	ProjectSection(ProjectDependencies) = postProject
+		{37B03EFF-9FAA-4F9C-87DB-E0D36F87D669} = {37B03EFF-9FAA-4F9C-87DB-E0D36F87D669}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37B03EFF-9FAA-4F9C-87DB-E0D36F87D669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B03EFF-9FAA-4F9C-87DB-E0D36F87D669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B03EFF-9FAA-4F9C-87DB-E0D36F87D669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B03EFF-9FAA-4F9C-87DB-E0D36F87D669}.Release|Any CPU.Build.0 = Release|Any CPU
+		{989F42FC-D42B-437A-AACF-8027220DA066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{989F42FC-D42B-437A-AACF-8027220DA066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{989F42FC-D42B-437A-AACF-8027220DA066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{989F42FC-D42B-437A-AACF-8027220DA066}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
