@@ -31,23 +31,6 @@ namespace GenericPainter
             }
         }
 
-        public void Score(ImageCandidate candidate)
-        {
-            float diff = 0;
-
-            for (var y = 0; y < candidate.Model.Height; y++)
-            {
-                for (var x = 0; x < candidate.Model.Width; x++)
-                {
-                    diff += (float)Math.Abs(candidate.Bitmap.GetPixel(x, y).R - candidate.Model.GetPixel(x, y).R) / 255;
-                    diff += (float)Math.Abs(candidate.Bitmap.GetPixel(x, y).G - candidate.Model.GetPixel(x, y).G) / 255;
-                    diff += (float)Math.Abs(candidate.Bitmap.GetPixel(x, y).B - candidate.Model.GetPixel(x, y).B) / 255;
-                }
-            }
-
-            candidate.Difference = diff;
-        }
-
         private static int CalculateDifference(ImageCandidate candidate, Bitmap model, int x, int y)
         {
             var candidateColor = candidate.Bitmap.GetPixel(x, y);

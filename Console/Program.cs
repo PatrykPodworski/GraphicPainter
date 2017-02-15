@@ -40,7 +40,7 @@ namespace GeneticPainter
                 // scoring loop
                 foreach (var candidate in candidates)
                 {
-                    mutator.Score(candidate);
+                    candidate.Score();
                 }
 
                 // sorting via score
