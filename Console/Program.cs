@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
 using System.Linq;
-using System.Net.Mime;
-using System.Threading;
-using System.Threading.Tasks;
-using GenericPainter;
+using GenericPainter;   
 
 namespace GeneticPainter
 {
@@ -48,9 +43,6 @@ namespace GeneticPainter
                     mutator.Score(candidate);
                 }
 
-                // parallel scoring
-                //candidates.AsParallel().ForAll(mutator.Score);
-
                 // sorting via score
                 candidates = candidates.OrderBy(c => c.Difference).ToArray();
 
@@ -64,6 +56,7 @@ namespace GeneticPainter
                 {
                     candidates[0].Save("src/result" + i + ".png");
                 }
+
                 Console.WriteLine("Iteration: " + i +
                     ", time elapsed: " + stopwatch.Elapsed +
                     ", difference: " + candidates[0].PercentageDifference + "%");

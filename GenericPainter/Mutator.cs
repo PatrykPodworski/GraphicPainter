@@ -33,7 +33,6 @@ namespace GenericPainter
 
         public void Score(ImageCandidate candidate)
         {
-            //Console.WriteLine("Working on thread: "+ Thread.CurrentThread.ManagedThreadId);
             float diff = 0;
 
             for (var y = 0; y < candidate.Model.Height; y++)
