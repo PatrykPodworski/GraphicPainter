@@ -4,6 +4,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using GenericPainter.Other;
 
 namespace GeneticPainter
 {
