@@ -1,6 +1,5 @@
 ﻿using GenericPainter.Abstract;
 using GenericPainter.Other;
-using System.Drawing;
 
 namespace GenericPainter.Mutators
 {
@@ -8,11 +7,26 @@ namespace GenericPainter.Mutators
     {
         public int RectangleSize { get; set; }
 
-        public FixedSquareMutator(Image model) : base(model)
+        public FixedSquareMutator() : base()
         {
             RectangleSize = 10;
         }
 
-        protected override Coordinates GetSize() => new Coordinates(RectangleSize, RectangleSize);
+        protected override Coordinates GetSize(int maxWidth, int maxHeight)
+        {
+            var size = RectangleSize;
+
+            if (maxHeight < size)
+            {
+                size = maxHeight;
+            }
+
+            if (maxWidth < size)
+            {
+                size = maxWidth;
+            }
+
+            return new Coordinates(size, size);
+        }
     }
 }
