@@ -21,7 +21,7 @@ namespace GenericPainter.Abstract
             var x0 = Random.Next(width);
             var y0 = Random.Next(height);
 
-            var size = GetSize(width - x0 + 1, height - y0 + 1);
+            var size = GetSize(width - x0, height - y0);
 
             var randomColor = GetRandomColor(Random);
 

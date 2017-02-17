@@ -12,12 +12,12 @@ namespace GeneticPainter
         private static void Main(string[] args)
         {
             // ugly constants
-            const int numberOfCandidates = 20;
+            const int numberOfCandidates = 30;
             const int numberOfGenerations = 3000;
 
             // loading base structures
             var imageModel = Image.FromFile("src/image.png") as Bitmap;
-            var mutator = new RandomRectangleMutator();
+            var mutator = new FixedSquareMutator();
             var candidates = new ImageCandidate[numberOfCandidates];
 
             // creating candidates

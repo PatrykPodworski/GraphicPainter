@@ -9,7 +9,7 @@ namespace GenericPainter.Mutators
 
         protected override Coordinates GetSize(int maxWidth, int maxHeight)
         {
-            var size = Random.Next(maxWidth < maxHeight ? maxWidth : maxHeight);
+            var size = Random.Next(maxWidth < maxHeight ? maxWidth + 1 : maxHeight + 1);
             return new Coordinates(size, size);
         }
     }
