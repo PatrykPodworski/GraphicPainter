@@ -17,7 +17,7 @@ namespace GeneticPainter
 
             // loading base structures
             var imageModel = Image.FromFile("src/image.png") as Bitmap;
-            var mutator = new FixedSquareMutator();
+            var mutator = new RandomSquareMutator(imageModel);
             var candidates = new ImageCandidate[numberOfCandidates];
 
             // creating candidates
