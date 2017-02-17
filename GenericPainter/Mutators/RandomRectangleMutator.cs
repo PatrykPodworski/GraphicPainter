@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace GenericPainter
+namespace GenericPainter.Mutators
 {
     public class RandomRectangleMutator
     {

@@ -1,4 +1,5 @@
 ﻿using GenericPainter;
+using GenericPainter.Mutators;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -16,7 +17,7 @@ namespace GeneticPainter
 
             // loading base structures
             var imageModel = Image.FromFile("src/image.png") as Bitmap;
-            var mutator = new RandomRectangleMutator();
+            var mutator = new FixedSquareMutator();
             var candidates = new ImageCandidate[numberOfCandidates];
 
             // creating candidates
