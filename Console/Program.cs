@@ -1,8 +1,8 @@
-﻿using System;
+﻿using GenericPainter;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using GenericPainter;   
 
 namespace GeneticPainter
 {
@@ -12,15 +12,15 @@ namespace GeneticPainter
         {
             // ugly constants
             const int numberOfCandidates = 20;
-            const int numberOfGenerations = 10000;
+            const int numberOfGenerations = 3000;
 
             // loading base structures
             var imageModel = Image.FromFile("src/image.png") as Bitmap;
-            var mutator = new Mutator(10);
+            var mutator = new RandomRectangleMutator();
             var candidates = new ImageCandidate[numberOfCandidates];
 
             // creating candidates
-                for (var i = 0; i < numberOfCandidates; i++)
+            for (var i = 0; i < numberOfCandidates; i++)
             {
                 candidates[i] = new ImageCandidate(imageModel);
             }
@@ -46,9 +46,10 @@ namespace GeneticPainter
                 // sorting via score
                 candidates = candidates.OrderBy(c => c.Difference).ToArray();
 
-                // coping best candidate as a new generation
+                // coping best candidate as a new generation (crossing)
                 for (var j = 1; j < numberOfCandidates; j++)
                 {
+                    candidates[j].Bitmap.Dispose();
                     candidates[j].Bitmap = candidates[0].Bitmap.Clone() as Bitmap;
                 }
 

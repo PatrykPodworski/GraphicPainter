@@ -1,42 +1,35 @@
 ﻿using System;
 using System.Drawing;
-using System.Threading;
 
 namespace GenericPainter
 {
-    public class Mutator
+    public class RandomRectangleMutator
     {
-        public int SizeOfRectangle { get; private set; }
         private readonly Random _random;
 
-        public Mutator(int sizeOfRectangle)
+        public RandomRectangleMutator()
         {
-            SizeOfRectangle = sizeOfRectangle;
             _random = new Random();
         }
 
         public void Mutate(ImageCandidate candidate)
         {
-            var x0 = _random.Next(candidate.Bitmap.Width - 9);
-            var y0 = _random.Next(candidate.Bitmap.Height - 9);
+            var x0 = _random.Next(candidate.Bitmap.Width - 2);
+            var y0 = _random.Next(candidate.Bitmap.Height - 2);
+
+            var sizeX = _random.Next(candidate.Bitmap.Width - x0 - 1);
+            var sizeY = _random.Next(candidate.Bitmap.Height - y0 - 1);
+
             var randomColor = GetRandomColor(_random);
 
-            for (var i = 0; i < SizeOfRectangle; i++)
+            for (var i = 0; i < sizeX; i++)
             {
-                for (var j = 0; j < SizeOfRectangle; j++)
+                for (var j = 0; j < sizeY; j++)
                 {
                     var color = GetAverageColor(randomColor, candidate.Bitmap.GetPixel(x0 + i, y0 + j));
                     candidate.Bitmap.SetPixel(x0 + i, y0 + j, color);
                 }
             }
-        }
-
-        private static int CalculateDifference(ImageCandidate candidate, Bitmap model, int x, int y)
-        {
-            var candidateColor = candidate.Bitmap.GetPixel(x, y);
-            var modelColor = model.GetPixel(x, y);
-
-            return Math.Abs(candidateColor.ToArgb() - modelColor.ToArgb());
         }
 
         private static Color GetAverageColor(Color color1, Color color2)

@@ -17,11 +17,11 @@ namespace GenericPainter
 
         private static Bitmap GenerateBaseCandidate(int x, int y)
         {
-            var bmp = new Bitmap(x,y);
+            var bmp = new Bitmap(x, y);
 
             using (var graphics = Graphics.FromImage(bmp))
             {
-                var imageArea = new Rectangle(0,0, x,y);
+                var imageArea = new Rectangle(0, 0, x, y);
                 graphics.FillRectangle(Brushes.White, imageArea);
             }
 
