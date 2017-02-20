@@ -47,6 +47,7 @@
     <Compile Include="Mutators\FixedSquareMutator.cs" />
     <Compile Include="Mutators\RandomSquareMutator.cs" />
     <Compile Include="Mutators\RandomRectangleMutator.cs" />
+    <Compile Include="Other\RGBImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
