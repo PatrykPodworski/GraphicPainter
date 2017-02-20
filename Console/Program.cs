@@ -1,10 +1,9 @@
-﻿using GenericPainter;
-using GenericPainter.Mutators;
+﻿using GenericPainter.Mutators;
+using GenericPainter.Other;
 using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using GenericPainter.Other;
 
 namespace GeneticPainter
 {
@@ -13,12 +12,12 @@ namespace GeneticPainter
         private static void Main(string[] args)
         {
             // ugly constants
-            const int numberOfCandidates = 20;
+            const int numberOfCandidates = 30;
             const int numberOfGenerations = 3000;
 
             // loading base structures
             var imageModel = Image.FromFile("src/image.png") as Bitmap;
-            var mutator = new RandomSquareMutator(imageModel);
+            var mutator = new FixedSquareMutator();
             var candidates = new ImageCandidate[numberOfCandidates];
 
             // creating candidates

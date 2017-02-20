@@ -7,22 +7,21 @@ namespace GenericPainter.Abstract
     public abstract class RectangleMutator
     {
         protected readonly Random Random;
-        public int ModelHeight { get; set; }
-        public int ModelWidth { get; set; }
 
-        protected RectangleMutator(Image model)
+        protected RectangleMutator()
         {
-            ModelHeight = model.Height;
-            ModelWidth = model.Width;
             Random = new Random();
         }
 
         public void Mutate(ImageCandidate candidate)
         {
-            var size = GetSize();
+            var width = candidate.Bitmap.Width;
+            var height = candidate.Bitmap.Height;
 
-            var x0 = Random.Next(ModelWidth - size.X - 1);
-            var y0 = Random.Next(ModelHeight - size.Y - 1);
+            var x0 = Random.Next(width);
+            var y0 = Random.Next(height);
+
+            var size = GetSize(width - x0, height - y0);
 
             var randomColor = GetRandomColor(Random);
 
@@ -44,6 +43,6 @@ namespace GenericPainter.Abstract
             return Color.FromArgb(random.Next(255), random.Next(255), random.Next(255));
         }
 
-        protected abstract Coordinates GetSize();
+        protected abstract Coordinates GetSize(int maxWidth, int maxHeight);
     }
 }
