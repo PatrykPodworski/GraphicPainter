@@ -15,8 +15,8 @@ namespace GenericPainter.Abstract
 
         public void Mutate(ImageCandidate candidate)
         {
-            var width = candidate.Bitmap.Width;
-            var height = candidate.Bitmap.Height;
+            var width = candidate.Image.Width;
+            var height = candidate.Image.Height;
 
             var x0 = Random.Next(width);
             var y0 = Random.Next(height);
@@ -28,8 +28,8 @@ namespace GenericPainter.Abstract
             for (var i = 0; i < size.Y; i++)
                 for (var j = 0; j < size.X; j++)
                 {
-                    var color = GetAverageColor(randomColor, candidate.Bitmap.GetPixel(x0 + j, y0 + i));
-                    candidate.Bitmap.SetPixel(x0 + j, y0 + i, color);
+                    var color = GetAverageColor(randomColor, candidate.Image.GetPixelColour(x0 + j, y0 + i));
+                    candidate.Image.SetPixelColour(x0 + j, y0 + i, color);
                 }
         }
 

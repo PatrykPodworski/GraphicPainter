@@ -2,7 +2,6 @@
 using GenericPainter.Other;
 using System;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
 
 namespace GeneticPainter
@@ -16,7 +15,8 @@ namespace GeneticPainter
             const int numberOfGenerations = 3000;
 
             // loading base structures
-            var imageModel = Image.FromFile("src/image.png") as Bitmap;
+            var imageModel = new RgbImage("src/image.png");
+
             var mutator = new FixedSquareMutator();
             var candidates = new ImageCandidate[numberOfCandidates];
 
@@ -41,7 +41,7 @@ namespace GeneticPainter
                 // scoring loop
                 foreach (var candidate in candidates)
                 {
-                    candidate.Score();
+                    candidate.Score(imageModel);
                 }
 
                 // sorting via score
@@ -50,8 +50,7 @@ namespace GeneticPainter
                 // coping best candidate as a new generation (crossing)
                 for (var j = 1; j < numberOfCandidates; j++)
                 {
-                    candidates[j].Bitmap.Dispose();
-                    candidates[j].Bitmap = candidates[0].Bitmap.Clone() as Bitmap;
+                    candidates[j].Image.Copy(candidates[0].Image);
                 }
 
                 if (i % 10 == 0)
